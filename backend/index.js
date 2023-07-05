@@ -23,6 +23,12 @@ app.get('/', (req, res) => {
 
 
 app.post('/submit', async(req, res) => {
+    const date = new Date().toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })
     // console.log(req.body)
 try{
 const save = await users.findOne({name: req.body.name})
@@ -37,7 +43,7 @@ const {
 } = req.body;
 
 const candidate = new users({
-    
+    date,
     name,
     address,
     amount
@@ -46,6 +52,7 @@ const candidate = new users({
 const saved  = await candidate.save();
 
 return res.status(201).json({
+
     data: saved,
     status:"success",
     message:"candidate saved successfully"

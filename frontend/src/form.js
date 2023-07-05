@@ -347,7 +347,7 @@ const FormExample = () => {
     }
 
        const handleSubmit = (event) => {
-        console.log(event);
+        // console.log(event);
     event.preventDefault();
 const form = {
         name: formData.name,
@@ -364,7 +364,7 @@ const form = {
         return axios 
         .post("http://localhost:7000/submit",form)
         .then((response) =>{
-            console.log(response);
+            // console.log(response);
             return response;
         }
         )
@@ -380,7 +380,7 @@ const form = {
     const getallusers = async() =>{
         const get = axios.get("http://localhost:7000/getallusers")
         .then((res)=>{
-             console.log(res.data.data);
+            //  console.log(res.data.data);
              setData(res.data.data);
         })
         .catch((err)=>{
